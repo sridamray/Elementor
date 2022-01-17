@@ -1,0 +1,27 @@
+<?php
+/**
+ * Plugin Name: Oliva Addon
+ * Description: Oliva addon For Oliva Personal Portfoli Theme.
+ * Version:     1.0.0
+ * Author:      oliva-addon
+ * Author URI:  https://ordainit.com
+ * Elementor tested up to: 3.5.0
+ * Elementor Pro tested up to: 3.5.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
+
+function register_oliva_theme_widget( $widgets_manager ) {
+
+	
+	require_once( __DIR__ . '/widgets/oliva-banner-widget.php' );
+
+	$widgets_manager->register( new \oliva_banner_widget() );
+
+}
+add_action( 'elementor/widgets/register', 'register_oliva_theme_widget' );
+
+
